@@ -21,12 +21,11 @@ import ModesView from "./components/modes/ModesView"
 import { HumanRelayDialog } from "./components/human-relay/HumanRelayDialog"
 import { DeleteMessageDialog, EditMessageDialog } from "./components/chat/MessageModificationConfirmationDialog"
 import ErrorBoundary from "./components/ErrorBoundary"
-import { AccountView } from "./components/account/AccountView"
 import { useAddNonInteractiveClickListener } from "./components/ui/hooks/useNonInteractiveClick"
 import { TooltipProvider } from "./components/ui/tooltip"
 import { STANDARD_TOOLTIP_DELAY } from "./components/ui/standard-tooltip"
 
-type Tab = "settings" | "history" | "mcp" | "modes" | "chat" | "marketplace" | "account"
+type Tab = "settings" | "history" | "mcp" | "modes" | "chat"
 
 interface HumanRelayDialogState {
 	isOpen: boolean
@@ -57,8 +56,6 @@ const tabsByMessageAction: Partial<Record<NonNullable<ExtensionMessage["action"]
 	promptsButtonClicked: "modes",
 	mcpButtonClicked: "mcp",
 	historyButtonClicked: "history",
-	marketplaceButtonClicked: "marketplace",
-	accountButtonClicked: "account",
 }
 
 const App = () => {
@@ -106,9 +103,9 @@ const App = () => {
 	const switchTab = useCallback(
 		(newTab: Tab) => {
 			// Check MDM compliance before allowing tab switching
-			if (mdmCompliant === false && newTab !== "account") {
-				return
-			}
+			// if (mdmCompliant === false && newTab !== "account") {
+			// 	return
+			// }
 
 			setCurrentSection(undefined)
 			setCurrentMarketplaceTab(undefined)
@@ -217,11 +214,11 @@ const App = () => {
 		}, [renderContext]),
 	)
 	// Track marketplace tab views
-	useEffect(() => {
-		if (tab === "marketplace") {
-			telemetryClient.capture(TelemetryEventName.MARKETPLACE_TAB_VIEWED)
-		}
-	}, [tab])
+	// useEffect(() => {
+	// 	if (tab === "marketplace") {
+	// 		telemetryClient.capture(TelemetryEventName.MARKETPLACE_TAB_VIEWED)
+	// 	}
+	// }, [tab])
 
 	if (!didHydrateState) {
 		return null
@@ -238,21 +235,6 @@ const App = () => {
 			{tab === "history" && <HistoryView onDone={() => switchTab("chat")} />}
 			{tab === "settings" && (
 				<SettingsView ref={settingsRef} onDone={() => setTab("chat")} targetSection={currentSection} />
-			)}
-			{tab === "marketplace" && (
-				<MarketplaceView
-					stateManager={marketplaceStateManager}
-					onDone={() => switchTab("chat")}
-					targetTab={currentMarketplaceTab as "mcp" | "mode" | undefined}
-				/>
-			)}
-			{tab === "account" && (
-				<AccountView
-					userInfo={cloudUserInfo}
-					isAuthenticated={cloudIsAuthenticated}
-					cloudApiUrl={cloudApiUrl}
-					onDone={() => switchTab("chat")}
-				/>
 			)}
 			<ChatView
 				ref={chatViewRef}
