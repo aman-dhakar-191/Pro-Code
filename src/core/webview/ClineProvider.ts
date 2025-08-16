@@ -118,6 +118,7 @@ export class ClineProvider
 	public readonly latestAnnouncementId = "jul-29-2025-3-25-0" // Update for v3.25.0 announcement
 	public readonly providerSettingsManager: ProviderSettingsManager
 	public readonly customModesManager: CustomModesManager
+	public readonly api: import("../../extension/api").API
 
 	constructor(
 		readonly context: vscode.ExtensionContext,
@@ -125,6 +126,7 @@ export class ClineProvider
 		private readonly renderContext: "sidebar" | "editor" = "sidebar",
 		public readonly contextProxy: ContextProxy,
 		mdmService?: MdmService,
+		apiInstance?: import("../../extension/api").API,
 	) {
 		super()
 
@@ -165,6 +167,8 @@ export class ClineProvider
 		this.initializeCloudProfileSync().catch((error) => {
 			this.log(`Failed to initialize cloud profile sync: ${error}`)
 		})
+
+		this.api = apiInstance!
 	}
 
 	/**
@@ -1733,8 +1737,9 @@ export class ClineProvider
 			sharingEnabled: sharingEnabled ?? false,
 			organizationAllowList,
 			organizationSettingsVersion,
-			condensingApiConfigId,
-			customCondensingPrompt,
+			// Explicitly add condensing settings
+			condensingApiConfigId: condensingApiConfigId,
+			customCondensingPrompt: customCondensingPrompt,
 			codebaseIndexModels: codebaseIndexModels ?? EMBEDDING_MODEL_PROFILES,
 			codebaseIndexConfig: {
 				codebaseIndexEnabled: codebaseIndexConfig?.codebaseIndexEnabled ?? true,
