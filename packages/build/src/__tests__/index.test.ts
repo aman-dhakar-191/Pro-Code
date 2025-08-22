@@ -11,14 +11,14 @@ describe("generatePackageJson", () => {
 				description: "%extension.description%",
 				publisher: "RooVeterinaryInc",
 				version: "3.17.2",
-				icon: "assets/icons/icon.png",
+				icon: "assets/icons/iconV1.png",
 				contributes: {
 					viewsContainers: {
 						activitybar: [
 							{
 								id: "roo-cline-ActivityBar",
 								title: "%views.activitybar.title%",
-								icon: "assets/icons/icon.svg",
+								icon: "assets/icons/iconV1.svg",
 							},
 						],
 					},
@@ -112,7 +112,7 @@ describe("generatePackageJson", () => {
 				displayName: "Roo Code Nightly",
 				publisher: "RooVeterinaryInc",
 				version: "0.0.1",
-				icon: "assets/icons/icon-nightly.png",
+				icon: "assets/icons/icon-nightlyV1.png",
 				scripts: {},
 			},
 			substitution: ["roo-cline", "roo-code-nightly"],
@@ -124,14 +124,14 @@ describe("generatePackageJson", () => {
 			description: "%extension.description%",
 			publisher: "RooVeterinaryInc",
 			version: "0.0.1",
-			icon: "assets/icons/icon-nightly.png",
+			icon: "assets/icons/icon-nightlyV1.png",
 			contributes: {
 				viewsContainers: {
 					activitybar: [
 						{
 							id: "roo-code-nightly-ActivityBar",
 							title: "%views.activitybar.title%",
-							icon: "assets/icons/icon.svg",
+							icon: "assets/icons/iconV1.svg",
 						},
 					],
 				},

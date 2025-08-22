@@ -385,27 +385,27 @@ export class MarketplaceViewStateManager {
 		}
 
 		// Handle marketplace button clicks
-		if (message.type === "marketplaceButtonClicked") {
-			if (message.text) {
-				// Error case
-				void this.transition({ type: "FETCH_ERROR" })
-			} else {
-				// Check if a specific tab is requested
-				if (
-					message.values?.marketplaceTab &&
-					(message.values.marketplaceTab === "mcp" || message.values.marketplaceTab === "mode")
-				) {
-					// Set the active tab
-					void this.transition({
-						type: "SET_ACTIVE_TAB",
-						payload: { tab: message.values.marketplaceTab },
-					})
-				}
+		// if (message.type === "marketplaceButtonClicked") {
+		// 	if (message.text) {
+		// 		// Error case
+		// 		void this.transition({ type: "FETCH_ERROR" })
+		// 	} else {
+		// 		// Check if a specific tab is requested
+		// 		if (
+		// 			message.values?.marketplaceTab &&
+		// 			(message.values.marketplaceTab === "mcp" || message.values.marketplaceTab === "mode")
+		// 		) {
+		// 			// Set the active tab
+		// 			void this.transition({
+		// 				type: "SET_ACTIVE_TAB",
+		// 				payload: { tab: message.values.marketplaceTab },
+		// 			})
+		// 		}
 
-				// Refresh request
-				void this.transition({ type: "FETCH_ITEMS" })
-			}
-		}
+		// 		// Refresh request
+		// 		void this.transition({ type: "FETCH_ITEMS" })
+		// 	}
+		// }
 
 		// Handle marketplace data updates (fetched on demand)
 		if (message.type === "marketplaceData") {
