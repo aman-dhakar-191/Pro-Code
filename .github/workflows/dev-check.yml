@@ -1,15 +1,12 @@
 name: Development Branch CI
 
-# Optional: Additional workflow for your development branch
-# This runs lighter checks on your ModifiedBrandingV2 branch
-
+# Fixed workflow for your ModifiedBrandingV2 branch
 on:
   push:
     branches: [ ModifiedBrandingV2 ]
   workflow_dispatch:
 
 jobs:
-  # Quick development checks
   dev-check:
     runs-on: ubuntu-latest
     
@@ -24,7 +21,9 @@ jobs:
         cache: 'pnpm'
     
     - name: Install pnpm
-      run: npm install -g pnpm@10.8.1
+      uses: pnpm/action-setup@v4
+      with:
+        version: '10.8.1'
     
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
