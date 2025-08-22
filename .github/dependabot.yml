@@ -1,59 +1,11 @@
-# .github/dependabot.yml
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
 version: 2
 updates:
-  # Enable version updates for npm
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
-      day: "monday"
-      time: "09:00"
-    # Limit the number of open pull requests for version updates
-    open-pull-requests-limit: 10
-    # Allow both direct and indirect updates
-    allow:
-      - dependency-type: "direct"
-      - dependency-type: "indirect"
-    # Group minor and patch updates
-    groups:
-      development-dependencies:
-        patterns:
-          - "@types/*"
-          - "*eslint*"
-          - "*prettier*"
-          - "@typescript-eslint/*"
-          - "typescript"
-        update-types:
-          - "minor"
-          - "patch"
-      production-dependencies:
-        patterns:
-          - "*"
-        exclude-patterns:
-          - "@types/*"
-          - "*eslint*"
-          - "*prettier*"
-          - "@typescript-eslint/*"
-          - "typescript"
-        update-types:
-          - "patch"
-    # Reviewers for dependency updates
-    reviewers:
-      - "aman-dhakar-191"
-    # Add commit message prefix
-    commit-message:
-      prefix: "deps"
-      include: "scope"
-    # Rebase strategy
-    rebase-strategy: "auto"
-
-  # Enable version updates for GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-    commit-message:
-      prefix: "ci"
-      include: "scope"
