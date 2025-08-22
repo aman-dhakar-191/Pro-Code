@@ -1,0 +1,50 @@
+name: Development Branch CI
+
+# Optional: Additional workflow for your development branch
+# This runs lighter checks on your ModifiedBrandingV2 branch
+
+on:
+  push:
+    branches: [ ModifiedBrandingV2 ]
+  workflow_dispatch:
+
+jobs:
+  # Quick development checks
+  dev-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.19.2'
+        cache: 'pnpm'
+    
+    - name: Install pnpm
+      run: npm install -g pnpm@10.8.1
+    
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+    
+    - name: Quick build check
+      run: pnpm build
+    
+    - name: Quick lint check
+      run: pnpm lint
+    
+    - name: Development build status
+      run: |
+        echo "✅ Development branch '${{ github.ref_name }}' builds successfully!"
+        echo "Ready to create PR to main branch"
+        
+        if [ -d "out" ]; then
+          echo "📁 Build output (out directory):"
+          ls -la out/ | head -10
+        fi
+        if [ -d "dist" ]; then
+          echo "📁 Build output (dist directory):"
+          ls -la dist/ | head -10
+        fi
