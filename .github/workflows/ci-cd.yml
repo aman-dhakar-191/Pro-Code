@@ -122,7 +122,7 @@ jobs:
         path: ${{ steps.find-vsix.outputs.vsix_path }}
         retention-days: 30
     
-    - name: Create Release (optional)
+    - name: Create Release (fixed)
       if: startsWith(github.ref, 'refs/heads/main')
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -132,11 +132,10 @@ jobs:
         COMMIT_SHA=$(git rev-parse --short HEAD)
         TAG_NAME="v${VERSION}-main-${COMMIT_SHA}"
         
-        # Create release
+        # Create release WITHOUT --prerelease flag
         gh release create "$TAG_NAME" \
           --title "Main Build $TAG_NAME" \
           --notes "Automated build from main branch commit $COMMIT_SHA" \
-          --prerelease \
           "${{ steps.find-vsix.outputs.vsix_path }}"
 
   # Job 3: Code Quality Checks (runs on PRs)
