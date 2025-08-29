@@ -255,7 +255,7 @@ export const ModeSelector = ({
 					{/* Bottom bar with buttons on left and title on right */}
 					<div className="flex flex-row items-center justify-between px-2 py-2 border-t border-vscode-dropdown-border">
 						<div className="flex flex-row gap-1">
-							<IconButton
+							{/* <IconButton
 								iconClass="codicon-extensions"
 								title={t("chat:modeSelector.marketplace")}
 								onClick={() => {
@@ -269,7 +269,7 @@ export const ModeSelector = ({
 									)
 									setOpen(false)
 								}}
-							/>
+							/> */}
 							<IconButton
 								iconClass="codicon-settings-gear"
 								title={t("chat:modeSelector.settings")}
