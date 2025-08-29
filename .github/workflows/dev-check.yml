@@ -1,9 +1,10 @@
 name: Development Branch CI
 
-# Fixed workflow for your ModifiedBrandingV2 branch
 on:
   push:
-    branches: [ ModifiedBrandingV2 ]
+    branches:
+      - ModifiedBrandingV2
+      - feature/*
   workflow_dispatch:
 
 jobs:
@@ -28,16 +29,17 @@ jobs:
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
     
-    - name: Quick build check
+    - name: Run build
       run: pnpm build
     
-    - name: Quick lint check
+    - name: Run lint
       run: pnpm lint
+    
     
     - name: Development build status
       run: |
-        echo "✅ Development branch '${{ github.ref_name }}' builds successfully!"
-        echo "Ready to create PR to main branch"
+        echo "✅ Branch '${{ github.ref_name }}' passed CI!"
+        echo "Ready for PR to main ✅"
         
         if [ -d "out" ]; then
           echo "📁 Build output (out directory):"
