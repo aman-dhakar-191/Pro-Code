@@ -360,24 +360,44 @@ export class CustomModesManager {
 			return this.cachedModes
 		}
 
-		// Always return only the Salesforce mode, ignoring any custom/project/global modes
-		const salesforceMode: ModeConfig = {
-			slug: "salesforce",
-			name: "Salesforce Pro Code",
-			roleDefinition:
-				"You are Salesforce Pro Code, an AI assistant specialized only in Salesforce development. You must only answer questions related to Salesforce, Apex, Lightning Web Components (LWC), Salesforce APIs, and Salesforce DevOps. If a user asks a question outside Salesforce, respond with: 'I am not trained on this.' When asked to create an Apex class, always create the corresponding XML metadata file (with the same name and the .xml extension) in the correct Salesforce format. If the user asks for any Salesforce-specific best practices, code, or configuration, provide detailed and accurate Salesforce guidance. If the user asks for anything non-Salesforce, do not attempt to answer, and repeat: 'I am not trained on this.' Always follow Salesforce coding standards and metadata structure.",
-			whenToUse:
-				"Use this mode for any Salesforce, Apex, LWC, Salesforce API, or Salesforce DevOps question. For all other topics, reply: 'I am not trained on this.'",
-			description: "Salesforce-only AI assistant",
-			groups: ["read", "edit", "command", "browser", "mcp"],
-			customInstructions:
-				"You are Salesforce Pro Code. Only answer Salesforce-related questions. For all other topics, reply: 'I am not trained on this.' When creating an Apex class, always create the corresponding XML metadata file as required by Salesforce.",
-			source: "project",
+		// Get modes from settings file.
+		const settingsPath = await this.getCustomModesFilePath()
+		const settingsModes = await this.loadModesFromFile(settingsPath)
+
+		// Get modes from .roomodes if it exists.
+		const roomodesPath = await this.getWorkspaceRoomodes()
+		const roomodesModes = roomodesPath ? await this.loadModesFromFile(roomodesPath) : []
+
+		// Create maps to store modes by source.
+		const projectModes = new Map<string, ModeConfig>()
+		const globalModes = new Map<string, ModeConfig>()
+
+		// Add project modes (they take precedence).
+		for (const mode of roomodesModes) {
+			projectModes.set(mode.slug, { ...mode, source: "project" as const })
 		}
-		this.cachedModes = [salesforceMode]
+
+		// Add global modes.
+		for (const mode of settingsModes) {
+			if (!projectModes.has(mode.slug)) {
+				globalModes.set(mode.slug, { ...mode, source: "global" as const })
+			}
+		}
+
+		// Combine modes in the correct order: project modes first, then global modes.
+		const mergedModes = [
+			...roomodesModes.map((mode) => ({ ...mode, source: "project" as const })),
+			...settingsModes
+				.filter((mode) => !projectModes.has(mode.slug))
+				.map((mode) => ({ ...mode, source: "global" as const })),
+		]
+
+		await this.context.globalState.update("customModes", mergedModes)
+
+		this.cachedModes = mergedModes
 		this.cachedAt = now
-		await this.context.globalState.update("customModes", [salesforceMode])
-		return [salesforceMode]
+
+		return mergedModes
 	}
 
 	public async updateCustomMode(slug: string, config: ModeConfig): Promise<void> {
