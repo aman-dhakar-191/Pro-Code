@@ -121,6 +121,7 @@ export interface ExtensionMessage {
 		| "showEditMessageDialog"
 		| "commands"
 		| "insertTextIntoTextarea"
+		| "deployResult"
 	text?: string
 	payload?: any // Add a generic payload for now, can refine later
 	action?:
