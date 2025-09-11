@@ -65,7 +65,7 @@ const WelcomeView = () => {
 						{t("welcome:login")}
 					</VSCodeButton>
 					<VSCodeLink
-						href="#"
+						href="https://salesforce-ide-c1761.web.app/"
 						onClick={(e) => {
 							e.preventDefault()
 							setShowLogin(false)
