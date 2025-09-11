@@ -45,7 +45,7 @@ const WelcomeView = () => {
 	const handleLogin = useCallback(() => {
 		// This will be replaced with actual login URL later
 		const loginUrl = "http://localhost:3000/login"
-		vscode.postMessage({ type: "openExternalUrl", url: loginUrl })
+		vscode.postMessage({ type: "openExternal", text: loginUrl })
 	}, [])
 
 	// Using a lazy initializer so it reads once at mount
@@ -65,7 +65,7 @@ const WelcomeView = () => {
 						{t("welcome:login")}
 					</VSCodeButton>
 					<VSCodeLink
-						href="https://salesforce-ide-c1761.web.app/"
+						href="#"
 						onClick={(e) => {
 							e.preventDefault()
 							setShowLogin(false)
