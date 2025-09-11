@@ -20,6 +20,7 @@ const WelcomeView = () => {
 	const { apiConfiguration, currentApiConfigName, setApiConfiguration, uriScheme, machineId } = useExtensionState()
 	const { t } = useAppTranslation()
 	const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined)
+	const [showLogin, setShowLogin] = useState(true)
 
 	// Memoize the setApiConfigurationField function to pass to ApiOptions
 	const setApiConfigurationFieldForApiOptions = useCallback(
@@ -41,11 +42,40 @@ const WelcomeView = () => {
 		vscode.postMessage({ type: "upsertApiConfiguration", text: currentApiConfigName, apiConfiguration })
 	}, [apiConfiguration, currentApiConfigName])
 
+	const handleLogin = useCallback(() => {
+		// This will be replaced with actual login URL later
+		const loginUrl = "http://localhost:3000/login"
+		vscode.postMessage({ type: "openExternalUrl", url: loginUrl })
+	}, [])
+
 	// Using a lazy initializer so it reads once at mount
 	const [imagesBaseUri] = useState(() => {
 		const w = window as any
 		return w.IMAGES_BASE_URI || ""
 	})
+
+	if (showLogin) {
+		return (
+			<Tab>
+				<TabContent className="flex flex-col items-center justify-center gap-5 p-16 h-full">
+					<RooHero />
+					<h2 className="mt-0 mb-0">{t("welcome:greeting")}</h2>
+					<p className="text-center">{t("welcome:introduction")}</p>
+					<VSCodeButton onClick={handleLogin} appearance="primary">
+						{t("welcome:login")}
+					</VSCodeButton>
+					<VSCodeLink
+						href="#"
+						onClick={(e) => {
+							e.preventDefault()
+							setShowLogin(false)
+						}}>
+						{t("welcome:continueWithoutLogin")}
+					</VSCodeLink>
+				</TabContent>
+			</Tab>
+		)
+	}
 
 	return (
 		<Tab>
