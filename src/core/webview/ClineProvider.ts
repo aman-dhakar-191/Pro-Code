@@ -213,7 +213,7 @@ export class ClineProvider
 
 			const currentApiConfigName = this.getGlobalState("currentApiConfigName")
 			const result = await this.providerSettingsManager.syncCloudProfiles(
-				settings.providerProfiles,
+				settings.providerProfiles as any,
 				currentApiConfigName,
 			)
 

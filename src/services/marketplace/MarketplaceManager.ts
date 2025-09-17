@@ -42,7 +42,7 @@ export class MarketplaceManager {
 
 			try {
 				if (CloudService.hasInstance() && CloudService.instance.isAuthenticated()) {
-					orgSettings = CloudService.instance.getOrganizationSettings()
+					orgSettings = CloudService.instance.getOrganizationSettings() as any
 				}
 			} catch (orgError) {
 				console.warn("Failed to load organization settings:", orgError)
