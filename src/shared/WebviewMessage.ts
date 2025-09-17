@@ -212,6 +212,7 @@ export interface WebviewMessage {
 		| "insertTextIntoTextarea"
 		| "deploy"
 		| "deployResult"
+		| "executeCommand"
 	text?: string
 	editedMessageContent?: string
 	tab?: "settings" | "history" | "mcp" | "modes" | "chat" | "marketplace" | "account"

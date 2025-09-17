@@ -297,6 +297,18 @@ export const webviewMessageHandler = async (
 			await updateGlobalState("alwaysAllowReadOnly", message.bool ?? undefined)
 			await provider.postStateToWebview()
 			break
+		case "executeCommand":
+			if (message.commands) {
+				try {
+					await vscode.commands.executeCommand(message.commands[0])
+				} catch (error) {
+					console.error(`Error executing command ${message.commands}:`, error)
+					vscode.window.showErrorMessage(
+						`Error executing command ${message.commands}: ${error instanceof Error ? error.message : String(error)}`,
+					)
+				}
+			}
+			break
 		case "alwaysAllowReadOnlyOutsideWorkspace":
 			await updateGlobalState("alwaysAllowReadOnlyOutsideWorkspace", message.bool ?? undefined)
 			await provider.postStateToWebview()
