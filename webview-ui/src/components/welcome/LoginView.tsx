@@ -1,7 +1,6 @@
 import { useCallback } from "react"
 import { VSCodeButton } from "@vscode/webview-ui-toolkit/react"
 
-// import { useExtensionState } from "@src/context/ExtensionStateContext"
 import { vscode } from "@src/utils/vscode"
 // import { useAppTranslation } from "@src/i18n/TranslationContext"
 
@@ -11,7 +10,6 @@ import RooHero from "./RooHero"
 const LoginView = () => {
 	console.log("🚀 LoginView component is rendering!")
 
-	// const { uriScheme } = useExtensionState()
 	// const { t } = useAppTranslation() // Commented out as not used yet
 
 	const handleLogin = useCallback(() => {
