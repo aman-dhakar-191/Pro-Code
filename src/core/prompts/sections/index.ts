@@ -1,5 +1,6 @@
 export { getRulesSection } from "./rules"
 export { getSystemInfoSection } from "./system-info"
+export { getDeveloperInfoSection } from "./developer-info"
 export { getObjectiveSection } from "./objective"
 export { addCustomInstructions } from "./custom-instructions"
 export { getSharedToolUseSection } from "./tool-use"

@@ -19,6 +19,7 @@ import { getToolDescriptionsForMode } from "./tools"
 import {
 	getRulesSection,
 	getSystemInfoSection,
+	getDeveloperInfoSection,
 	getObjectiveSection,
 	getSharedToolUseSection,
 	getMcpServersSection,
@@ -120,6 +121,8 @@ ${getRulesSection(cwd, supportsComputerUse, effectiveDiffStrategy, codeIndexMana
 
 ${getSystemInfoSection(cwd)}
 
+${getDeveloperInfoSection()}
+
 ${getObjectiveSection(codeIndexManager, experiments)}
 
 ${await addCustomInstructions(baseInstructions, globalCustomInstructions || "", cwd, mode, {
@@ -195,6 +198,8 @@ export const SYSTEM_PROMPT = async (
 		return `${roleDefinition}
 
 ${fileCustomSystemPrompt}
+
+${getDeveloperInfoSection()}
 
 ${customInstructions}`
 	}
