@@ -10,7 +10,7 @@ import { ClineSayTool } from "../../shared/ExtensionMessage"
 import { RecordSource } from "../context-tracking/FileContextTrackerTypes"
 import { fileExistsAtPath } from "../../utils/fs"
 import { insertGroups } from "../diff/insert-groups"
-import { DEFAULT_WRITE_DELAY_MS } from "@roo-code/types"
+import { DEFAULT_WRITE_DELAY_MS } from "@siid-code/types"
 import { EXPERIMENT_IDS, experiments } from "../../shared/experiments"
 
 export async function insertContentTool(

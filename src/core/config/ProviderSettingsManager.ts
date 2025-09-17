@@ -9,8 +9,8 @@ import {
 	isSecretStateKey,
 	ProviderSettingsEntry,
 	DEFAULT_CONSECUTIVE_MISTAKE_LIMIT,
-} from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+} from "@siid-code/types"
+import { TelemetryService } from "@siid-code/telemetry"
 
 import { Mode, modes } from "../../shared/modes"
 

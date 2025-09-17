@@ -10,14 +10,14 @@ import type {
 	OrganizationAllowList,
 	CloudUserInfo,
 	ShareVisibility,
-} from "@roo-code/types"
+} from "@siid-code/types"
 
 import { GitCommit } from "../utils/git"
 
 import { McpServer } from "./mcp"
 import { Mode } from "./modes"
 import { ModelRecord, RouterModels } from "./api"
-import type { MarketplaceItem } from "@roo-code/types"
+import type { MarketplaceItem } from "@siid-code/types"
 
 // Command interface for frontend/backend communication
 export interface Command {

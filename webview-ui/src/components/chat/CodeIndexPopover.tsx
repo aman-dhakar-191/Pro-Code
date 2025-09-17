@@ -41,7 +41,7 @@ import { useRooPortal } from "@src/components/ui/hooks/useRooPortal"
 import { useEscapeKey } from "@src/hooks/useEscapeKey"
 import type { EmbedderProvider } from "@roo/embeddingModels"
 import type { IndexingStatus } from "@roo/ExtensionMessage"
-import { CODEBASE_INDEX_DEFAULTS } from "@roo-code/types"
+import { CODEBASE_INDEX_DEFAULTS } from "@siid-code/types"
 
 // Default URLs for providers
 const DEFAULT_QDRANT_URL = "http://localhost:6333"

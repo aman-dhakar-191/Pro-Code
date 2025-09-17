@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@/utils/test-utils"
 import { describe, test, expect, vi } from "vitest"
 import ModeSelector from "../ModeSelector"
 import { Mode } from "@roo/modes"
-import { ModeConfig } from "@roo-code/types"
+import { ModeConfig } from "@siid-code/types"
 
 // Mock the dependencies
 vi.mock("@/utils/vscode", () => ({

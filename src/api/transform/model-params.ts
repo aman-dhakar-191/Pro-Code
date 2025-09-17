@@ -3,7 +3,7 @@ import {
 	type ProviderSettings,
 	type VerbosityLevel,
 	ANTHROPIC_DEFAULT_MAX_TOKENS,
-} from "@roo-code/types"
+} from "@siid-code/types"
 
 import {
 	DEFAULT_HYBRID_REASONING_MODEL_MAX_TOKENS,
@@ -128,7 +128,7 @@ export function getModelParams({
 		temperature = 1.0
 	} else if (shouldUseReasoningEffort({ model, settings })) {
 		// "Traditional" reasoning models use the `reasoningEffort` parameter.
-		reasoningEffort = customReasoningEffort ?? model.reasoningEffort
+		reasoningEffort = (customReasoningEffort ?? model.reasoningEffort) as any
 	}
 
 	const params: BaseModelParams = { maxTokens, temperature, reasoningEffort, reasoningBudget, verbosity }

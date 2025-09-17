@@ -1,4 +1,4 @@
-import type { ProviderSettings } from "@roo-code/types"
+import type { ProviderSettings } from "@siid-code/types"
 
 import { buildApiHandler, SingleCompletionHandler } from "../api"
 

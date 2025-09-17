@@ -1,7 +1,7 @@
 import * as vscode from "vscode"
 import * as os from "os"
 
-import type { ModeConfig, PromptComponent, CustomModePrompts, TodoItem } from "@roo-code/types"
+import type { ModeConfig, PromptComponent, CustomModePrompts, TodoItem } from "@siid-code/types"
 
 import type { SystemPromptSettings } from "./types"
 

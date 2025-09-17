@@ -8,7 +8,7 @@ import {
 	type ExperimentId,
 	type OrganizationAllowList,
 	ORGANIZATION_ALLOW_ALL,
-} from "@roo-code/types"
+} from "@siid-code/types"
 
 import { ExtensionMessage, ExtensionState, MarketplaceInstalledMetadata, Command } from "@roo/ExtensionMessage"
 import { findLastIndex } from "@roo/array"

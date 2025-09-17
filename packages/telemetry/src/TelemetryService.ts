@@ -1,6 +1,6 @@
 import { ZodError } from "zod"
 
-import { type TelemetryClient, type TelemetryPropertiesProvider, TelemetryEventName } from "@roo-code/types"
+import { type TelemetryClient, type TelemetryPropertiesProvider, TelemetryEventName } from "@siid-code/types"
 
 /**
  * TelemetryService wrapper class that defers initialization.

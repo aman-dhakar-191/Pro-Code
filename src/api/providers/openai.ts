@@ -8,7 +8,7 @@ import {
 	openAiModelInfoSaneDefaults,
 	DEEP_SEEK_DEFAULT_TEMPERATURE,
 	OPENAI_AZURE_AI_INFERENCE_PATH,
-} from "@roo-code/types"
+} from "@siid-code/types"
 
 import type { ApiHandlerOptions } from "../../shared/api"
 
@@ -305,7 +305,7 @@ export class OpenAiHandler extends BaseProvider implements SingleCompletionHandl
 				],
 				stream: true,
 				...(isGrokXAI ? {} : { stream_options: { include_usage: true } }),
-				reasoning_effort: modelInfo.reasoningEffort,
+				reasoning_effort: modelInfo.reasoningEffort as any,
 				temperature: undefined,
 			}
 
@@ -330,7 +330,7 @@ export class OpenAiHandler extends BaseProvider implements SingleCompletionHandl
 					},
 					...convertToOpenAiMessages(messages),
 				],
-				reasoning_effort: modelInfo.reasoningEffort,
+				reasoning_effort: modelInfo.reasoningEffort as any,
 				temperature: undefined,
 			}
 

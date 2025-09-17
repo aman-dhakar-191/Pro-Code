@@ -10,7 +10,7 @@ import fuzzysort from "fuzzysort"
 import { toast } from "sonner"
 import { X, Rocket, Check, ChevronsUpDown, SlidersHorizontal, Book, CircleCheck } from "lucide-react"
 
-import { globalSettingsSchema, providerSettingsSchema, EVALS_SETTINGS, getModelId } from "@roo-code/types"
+import { globalSettingsSchema, providerSettingsSchema, EVALS_SETTINGS, getModelId } from "@siid-code/types"
 
 import { createRun } from "@/actions/runs"
 import { getExercises } from "@/actions/exercises"

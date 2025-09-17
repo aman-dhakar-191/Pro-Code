@@ -33,8 +33,8 @@ import {
 	ORGANIZATION_ALLOW_ALL,
 	DEFAULT_TERMINAL_OUTPUT_CHARACTER_LIMIT,
 	DEFAULT_WRITE_DELAY_MS,
-} from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+} from "@siid-code/types"
+import { TelemetryService } from "@siid-code/telemetry"
 import { CloudService, getRooCodeApiUrl } from "@roo-code/cloud"
 
 import { Package } from "../../shared/package"
@@ -213,7 +213,7 @@ export class ClineProvider
 
 			const currentApiConfigName = this.getGlobalState("currentApiConfigName")
 			const result = await this.providerSettingsManager.syncCloudProfiles(
-				settings.providerProfiles,
+				settings.providerProfiles as any,
 				currentApiConfigName,
 			)
 

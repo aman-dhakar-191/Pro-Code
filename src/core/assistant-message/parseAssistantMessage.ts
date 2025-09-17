@@ -1,4 +1,4 @@
-import { type ToolName, toolNames } from "@roo-code/types"
+import { type ToolName, toolNames } from "@siid-code/types"
 
 import { TextContent, ToolUse, ToolParamName, toolParamNames } from "../../shared/tools"
 

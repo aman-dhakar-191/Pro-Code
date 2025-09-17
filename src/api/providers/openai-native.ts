@@ -9,7 +9,7 @@ import {
 	OPENAI_NATIVE_DEFAULT_TEMPERATURE,
 	type ReasoningEffort,
 	type VerbosityLevel,
-} from "@roo-code/types"
+} from "@siid-code/types"
 
 import type { ApiHandlerOptions } from "../../shared/api"
 

@@ -1,7 +1,7 @@
 import { z } from "zod"
 import { useQuery } from "@tanstack/react-query"
 
-import { ModelInfo } from "@roo-code/types"
+import { ModelInfo } from "@siid-code/types"
 
 const parsePrice = (price?: string) => (price ? parseFloat(price) * 1_000_000 : undefined)
 

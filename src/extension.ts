@@ -13,7 +13,7 @@ try {
 }
 
 import { CloudService } from "@roo-code/cloud"
-import { TelemetryService, PostHogTelemetryClient } from "@roo-code/telemetry"
+import { TelemetryService, PostHogTelemetryClient } from "@siid-code/telemetry"
 
 import "./utils/path" // Necessary to have access to String.prototype.toPosix.
 import { createOutputChannelLogger, createDualLogger } from "./utils/outputChannelLogger"

@@ -5,8 +5,8 @@ import * as path from "path"
 
 import * as vscode from "vscode"
 
-import type { ProviderName } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+import type { ProviderName } from "@siid-code/types"
+import { TelemetryService } from "@siid-code/telemetry"
 
 import { importSettings, importSettingsFromFile, importSettingsWithFeedback, exportSettings } from "../importExport"
 import { ProviderSettingsManager } from "../ProviderSettingsManager"

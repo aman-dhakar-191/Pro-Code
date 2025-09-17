@@ -2,7 +2,7 @@ import { useCallback, useState, memo, useMemo } from "react"
 import { useEvent } from "react-use"
 import { ChevronDown, Skull } from "lucide-react"
 
-import { CommandExecutionStatus, commandExecutionStatusSchema } from "@roo-code/types"
+import { CommandExecutionStatus, commandExecutionStatusSchema } from "@siid-code/types"
 
 import { ExtensionMessage } from "@roo/ExtensionMessage"
 import { safeJsonParse } from "@roo/safeJsonParse"

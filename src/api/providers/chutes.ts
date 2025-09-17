@@ -1,4 +1,4 @@
-import { DEEP_SEEK_DEFAULT_TEMPERATURE, type ChutesModelId, chutesDefaultModelId, chutesModels } from "@roo-code/types"
+import { DEEP_SEEK_DEFAULT_TEMPERATURE, type ChutesModelId, chutesDefaultModelId, chutesModels } from "@siid-code/types"
 import { Anthropic } from "@anthropic-ai/sdk"
 import OpenAI from "openai"
 

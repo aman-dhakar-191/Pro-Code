@@ -4,7 +4,7 @@ import { z } from "zod"
  * ReasoningEffort
  */
 
-export const reasoningEfforts = ["low", "medium", "high"] as const
+export const reasoningEfforts = ["low", "medium", "high", "minimal"] as const
 
 export const reasoningEffortsSchema = z.enum(reasoningEfforts)
 

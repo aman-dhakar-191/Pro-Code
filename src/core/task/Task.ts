@@ -30,8 +30,8 @@ import {
 	getModelId,
 	DEFAULT_CONSECUTIVE_MISTAKE_LIMIT,
 	isBlockingAsk,
-} from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+} from "@siid-code/types"
+import { TelemetryService } from "@siid-code/telemetry"
 import { CloudService } from "@roo-code/cloud"
 
 // api

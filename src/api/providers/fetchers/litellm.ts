@@ -1,6 +1,6 @@
 import axios from "axios"
 
-import { LITELLM_COMPUTER_USE_MODELS } from "@roo-code/types"
+import { LITELLM_COMPUTER_USE_MODELS } from "@siid-code/types"
 
 import type { ModelRecord } from "../../../shared/api"
 

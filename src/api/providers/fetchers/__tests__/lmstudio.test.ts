@@ -2,7 +2,7 @@ import axios from "axios"
 import { vi, describe, it, expect, beforeEach } from "vitest"
 import { LMStudioClient, LLM, LLMInstanceInfo, LLMInfo } from "@lmstudio/sdk"
 import { getLMStudioModels, parseLMStudioModel } from "../lmstudio"
-import { ModelInfo, lMStudioDefaultModelInfo } from "@roo-code/types" // ModelInfo is a type
+import { ModelInfo, lMStudioDefaultModelInfo } from "@siid-code/types" // ModelInfo is a type
 
 // Mock axios
 vi.mock("axios")

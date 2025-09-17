@@ -1,5 +1,5 @@
 {
-	"name": "roo-cline",
+	"name": "siid-code",
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
 	"publisher": "RooVeterinaryInc",
@@ -14,7 +14,7 @@
 		"node": "20.19.2"
 	},
 	"author": {
-		"name": "Roo Code"
+		"name": "SIID Code"
 	},
 	"repository": {
 		"type": "git",
@@ -401,9 +401,9 @@
 		"@modelcontextprotocol/sdk": "^1.9.0",
 		"@qdrant/js-client-rest": "^1.14.0",
 		"@roo-code/cloud": "^0.5.0",
-		"@roo-code/ipc": "workspace:^",
-		"@roo-code/telemetry": "workspace:^",
-		"@roo-code/types": "workspace:^",
+		"@siid-code/ipc": "workspace:^",
+		"@siid-code/telemetry": "workspace:^",
+		"@siid-code/types": "workspace:^",
 		"@types/lodash.debounce": "^4.0.9",
 		"@vscode/codicons": "^0.0.36",
 		"async-mutex": "^0.5.0",
@@ -464,9 +464,9 @@
 		"zod": "^3.25.61"
 	},
 	"devDependencies": {
-		"@roo-code/build": "workspace:^",
-		"@roo-code/config-eslint": "workspace:^",
-		"@roo-code/config-typescript": "workspace:^",
+		"@siid-code/build": "workspace:^",
+		"@siid-code/config-eslint": "workspace:^",
+		"@siid-code/config-typescript": "workspace:^",
 		"@types/clone-deep": "^4.0.4",
 		"@types/debug": "^4.1.12",
 		"@types/diff": "^5.2.1",

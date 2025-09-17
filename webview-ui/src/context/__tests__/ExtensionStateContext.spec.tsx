@@ -1,6 +1,6 @@
 import { render, screen, act } from "@/utils/test-utils"
 
-import { ProviderSettings, ExperimentId } from "@roo-code/types"
+import { ProviderSettings, ExperimentId } from "@siid-code/types"
 
 import { ExtensionState } from "@roo/ExtensionMessage"
 

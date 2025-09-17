@@ -46,7 +46,7 @@ import {
 	mainlandZAiModels,
 	fireworksModels,
 	fireworksDefaultModelId,
-} from "@roo-code/types"
+} from "@siid-code/types"
 
 import type { ModelRecord, RouterModels } from "@roo/api"
 

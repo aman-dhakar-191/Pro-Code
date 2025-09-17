@@ -1,5 +1,5 @@
 {
-	"greeting": "Welcome to Pro Code!",
+	"greeting": "Welcome to SIID Code!",
 	"task": {
 		"title": "Task",
 		"seeMore": "See more",
@@ -18,7 +18,7 @@
 		"sharePublicly": "Share Publicly",
 		"sharePubliclyDescription": "Anyone with the link can access",
 		"connectToCloud": "Connect to Cloud",
-		"connectToCloudDescription": "Sign in to Pro Code Cloud to share tasks",
+		"connectToCloudDescription": "Sign in to SIID Code Cloud to share tasks",
 		"sharingDisabledByOrganization": "Sharing disabled by organization",
 		"shareSuccessOrganization": "Organization link copied to clipboard",
 		"shareSuccessPublic": "Public link copied to clipboard"
@@ -265,7 +265,7 @@
 	"autoApprove": {
 		"title": "Auto-approve:",
 		"none": "None",
-		"description": "Auto-approve allows Pro Code to perform actions without asking for permission. Only enable for actions you fully trust. More detailed configuration available in <settingsLink>Settings</settingsLink>.",
+		"description": "Auto-approve allows SIID Code to perform actions without asking for permission. Only enable for actions you fully trust. More detailed configuration available in <settingsLink>Settings</settingsLink>.",
 		"selectOptionsFirst": "Select at least one option below to enable auto-approval",
 		"toggleAriaLabel": "Toggle auto-approval",
 		"disabledAriaLabel": "Auto-approval disabled - select options first"
@@ -314,7 +314,7 @@
 	"profileViolationWarning": "The current profile isn't compatible with your organization's settings",
 	"shellIntegration": {
 		"title": "Command Execution Warning",
-		"description": "Your command is being executed without VSCode terminal shell integration. To suppress this warning you can disable shell integration in the <strong>Terminal</strong> section of the <settingsLink>Pro Code settings</settingsLink> or troubleshoot VSCode terminal integration using the link below.",
+		"description": "Your command is being executed without VSCode terminal shell integration. To suppress this warning you can disable shell integration in the <strong>Terminal</strong> section of the <settingsLink>SIID Code settings</settingsLink> or troubleshoot VSCode terminal integration using the link below.",
 		"troubleshooting": "Click here for shell integration documentation."
 	},
 	"ask": {
@@ -335,7 +335,7 @@
 		"ariaLabel": "Version {{version}} - Click to view release notes"
 	},
 	"rooCloudCTA": {
-		"title": "Pro Code Cloud is coming soon!",
+		"title": "SIID Code Cloud is coming soon!",
 		"description": "Run Roomote agents in the cloud, access your tasks from anywhere, collaborate with others, and more.",
 		"joinWaitlist": "Join the waitlist to get early access."
 	},
