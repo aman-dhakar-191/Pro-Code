@@ -1,5 +1,5 @@
 {
-	"name": "siid-code",
+	"name": "roo-cline",
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
 	"publisher": "RooVeterinaryInc",
@@ -219,11 +219,6 @@
 					"when": "view == roo-cline.SidebarProvider"
 				},
 				{
-					"command": "roo-cline.accountButtonClicked",
-					"group": "navigation@4",
-					"when": "view == roo-cline.SidebarProvider"
-				},
-				{
 					"command": "roo-cline.historyButtonClicked",
 					"group": "overflow@1",
 					"when": "view == roo-cline.SidebarProvider"
@@ -253,11 +248,6 @@
 				{
 					"command": "roo-cline.settingsButtonClicked",
 					"group": "navigation@3",
-					"when": "activeWebviewPanelId == roo-cline.TabPanelProvider"
-				},
-				{
-					"command": "roo-cline.accountButtonClicked",
-					"group": "navigation@4",
 					"when": "activeWebviewPanelId == roo-cline.TabPanelProvider"
 				},
 				{
