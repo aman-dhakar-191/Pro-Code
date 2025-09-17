@@ -27,6 +27,7 @@ export interface ExtensionStateContextType extends ExtensionState {
 	historyPreviewCollapsed?: boolean // Add the new state property
 	didHydrateState: boolean
 	showWelcome: boolean
+	showLogin: boolean
 	theme: any
 	mcpServers: McpServer[]
 	hasSystemPromptOverride?: boolean
@@ -251,7 +252,14 @@ export const ExtensionStateContextProvider: React.FC<{ children: React.ReactNode
 
 	const [didHydrateState, setDidHydrateState] = useState(false)
 	const [showWelcome, setShowWelcome] = useState(false)
+	const [showLogin, setShowLogin] = useState(false)
 	const [theme, setTheme] = useState<any>(undefined)
+
+	console.log("ExtensionStateContext - Initial state:")
+	console.log("  didHydrateState:", didHydrateState)
+	console.log("  showWelcome:", showWelcome)
+	console.log("  showLogin:", showLogin)
+	console.log("  cloudIsAuthenticated:", state.cloudIsAuthenticated)
 	const [filePaths, setFilePaths] = useState<string[]>([])
 	const [openedTabs, setOpenedTabs] = useState<Array<{ label: string; isActive: boolean; path?: string }>>([])
 	const [commands, setCommands] = useState<Command[]>([])
@@ -285,11 +293,32 @@ export const ExtensionStateContextProvider: React.FC<{ children: React.ReactNode
 	const handleMessage = useCallback(
 		(event: MessageEvent) => {
 			const message: ExtensionMessage = event.data
+			console.log("ExtensionStateContext - Message received:", message.type, message)
 			switch (message.type) {
 				case "state": {
 					const newState = message.state!
 					setState((prevState) => mergeExtensionState(prevState, newState))
-					setShowWelcome(!checkExistKey(newState.apiConfiguration))
+
+					const hasApiConfig = checkExistKey(newState.apiConfiguration)
+					const isAuthenticated = newState.cloudIsAuthenticated
+
+					console.log("ExtensionStateContext - state message received:")
+					console.log("  hasApiConfig:", hasApiConfig)
+					console.log("  isAuthenticated:", isAuthenticated)
+					console.log("  apiConfiguration:", newState.apiConfiguration)
+					console.log("  cloudIsAuthenticated:", newState.cloudIsAuthenticated)
+
+					// Show login if not authenticated and no API config
+					// Show welcome if authenticated but no API config
+					// Show neither if has API config (go to main app)
+					const shouldShowLogin = !isAuthenticated && !hasApiConfig
+					const shouldShowWelcome = isAuthenticated && !hasApiConfig
+
+					console.log("  shouldShowLogin:", shouldShowLogin)
+					console.log("  shouldShowWelcome:", shouldShowWelcome)
+
+					setShowLogin(shouldShowLogin)
+					setShowWelcome(shouldShowWelcome)
 					setDidHydrateState(true)
 					// Update alwaysAllowFollowupQuestions if present in state message
 					if ((newState as any).alwaysAllowFollowupQuestions !== undefined) {
@@ -369,6 +398,21 @@ export const ExtensionStateContextProvider: React.FC<{ children: React.ReactNode
 					}
 					break
 				}
+				case "loginSuccess": {
+					// Handle successful login
+					setShowLogin(false)
+					setState((prevState) => ({
+						...prevState,
+						cloudIsAuthenticated: true,
+						cloudUserInfo: message.loginData?.userInfo || null,
+					}))
+					break
+				}
+				case "skipLogin": {
+					// Handle skip login
+					setShowLogin(false)
+					break
+				}
 			}
 		},
 		[setListApiConfigMeta],
@@ -389,6 +433,7 @@ export const ExtensionStateContextProvider: React.FC<{ children: React.ReactNode
 		...state,
 		didHydrateState,
 		showWelcome,
+		showLogin,
 		theme,
 		mcpServers,
 		currentCheckpoint,
@@ -528,6 +573,12 @@ export const useExtensionState = () => {
 	if (context === undefined) {
 		throw new Error("useExtensionState must be used within an ExtensionStateContextProvider")
 	}
+
+	console.log("useExtensionState called - returning context:")
+	console.log("  didHydrateState:", context.didHydrateState)
+	console.log("  showWelcome:", context.showWelcome)
+	console.log("  showLogin:", context.showLogin)
+	console.log("  cloudIsAuthenticated:", context.cloudIsAuthenticated)
 
 	return context
 }
