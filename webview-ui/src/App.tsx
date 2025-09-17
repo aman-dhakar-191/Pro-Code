@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from "react"
 import { useEvent } from "react-use"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
+console.log("🚀 App.tsx module is loading...")
+
 import { ExtensionMessage } from "@roo/ExtensionMessage"
 import TranslationProvider from "./i18n/TranslationContext"
 
@@ -13,6 +15,7 @@ import ChatView, { ChatViewRef } from "./components/chat/ChatView"
 import HistoryView from "./components/history/HistoryView"
 import SettingsView, { SettingsViewRef } from "./components/settings/SettingsView"
 import WelcomeView from "./components/welcome/WelcomeView"
+import LoginView from "./components/welcome/LoginView"
 import McpView from "./components/mcp/McpView"
 import ModesView from "./components/modes/ModesView"
 import { HumanRelayDialog } from "./components/human-relay/HumanRelayDialog"
@@ -56,9 +59,12 @@ const tabsByMessageAction: Partial<Record<NonNullable<ExtensionMessage["action"]
 }
 
 const App = () => {
+	console.log("🚀 App component is loading...")
+
 	const {
 		didHydrateState,
 		showWelcome,
+		showLogin,
 		shouldShowAnnouncement,
 		telemetrySetting,
 		telemetryKey,
@@ -66,6 +72,8 @@ const App = () => {
 		renderContext,
 		mdmCompliant,
 	} = useExtensionState()
+
+	console.log("🚀 App component - useExtensionState called")
 
 	// Create a persistent state manager
 
@@ -156,6 +164,11 @@ const App = () => {
 			if (message.type === "acceptInput") {
 				chatViewRef.current?.acceptInput()
 			}
+
+			if (message.type === "loginSuccess") {
+				// Handle successful login - store login details and update state
+				vscode.postMessage({ type: "storeLoginDetails", loginData: message.loginData } as any)
+			}
 		},
 		[switchTab],
 	)
@@ -203,18 +216,25 @@ const App = () => {
 	)
 	// Track marketplace tab views
 	// useEffect(() => {
-	// 	if (tab === "marketplace") {
-	// 		telemetryClient.capture(TelemetryEventName.MARKETPLACE_TAB_VIEWED)
-	// 	}
+	//  if (tab === "marketplace") {
+	//      telemetryClient.capture(TelemetryEventName.MARKETPLACE_TAB_VIEWED)
+	//  }
 	// }, [tab])
 
 	if (!didHydrateState) {
+		console.log("App: didHydrateState is false, returning null")
 		return null
 	}
 
 	// Do not conditionally load ChatView, it's expensive and there's state we
 	// don't want to lose (user input, disableInput, askResponse promise, etc.)
-	return showWelcome ? (
+	console.log("App render - showWelcome:", showWelcome)
+	console.log("App render - showLogin:", showLogin)
+	console.log("App render - didHydrateState:", didHydrateState)
+
+	return showLogin ? (
+		<LoginView />
+	) : showWelcome ? (
 		<WelcomeView />
 	) : (
 		<>
@@ -268,18 +288,21 @@ const App = () => {
 
 const queryClient = new QueryClient()
 
-const AppWithProviders = () => (
-	<ErrorBoundary>
-		<ExtensionStateContextProvider>
-			<TranslationProvider>
-				<QueryClientProvider client={queryClient}>
-					<TooltipProvider delayDuration={STANDARD_TOOLTIP_DELAY}>
-						<App />
-					</TooltipProvider>
-				</QueryClientProvider>
-			</TranslationProvider>
-		</ExtensionStateContextProvider>
-	</ErrorBoundary>
-)
+const AppWithProviders = () => {
+	console.log("🚀 AppWithProviders component is loading...")
+	return (
+		<ErrorBoundary>
+			<ExtensionStateContextProvider>
+				<TranslationProvider>
+					<QueryClientProvider client={queryClient}>
+						<TooltipProvider delayDuration={STANDARD_TOOLTIP_DELAY}>
+							<App />
+						</TooltipProvider>
+					</QueryClientProvider>
+				</TranslationProvider>
+			</ExtensionStateContextProvider>
+		</ErrorBoundary>
+	)
+}
 
 export default AppWithProviders
