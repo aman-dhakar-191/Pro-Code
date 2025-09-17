@@ -1,6 +1,6 @@
 import delay from "delay"
 
-import { RooCodeEventName } from "@roo-code/types"
+import { RooCodeEventName } from "@siid-code/types"
 
 import { ToolUse, AskApproval, HandleError, PushToolResult, RemoveClosingTag } from "../../shared/tools"
 import { Task } from "../task/Task"

@@ -1,6 +1,6 @@
 import i18next from "i18next"
 
-import type { ProviderSettings, OrganizationAllowList } from "@roo-code/types"
+import type { ProviderSettings, OrganizationAllowList } from "@siid-code/types"
 
 import { isRouterName, RouterModels } from "@roo/api"
 

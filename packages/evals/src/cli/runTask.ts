@@ -12,8 +12,8 @@ import {
 	RooCodeEventName,
 	IpcMessageType,
 	EVALS_SETTINGS,
-} from "@roo-code/types"
-import { IpcClient } from "@roo-code/ipc"
+} from "@siid-code/types"
+import { IpcClient } from "@siid-code/ipc"
 
 import {
 	type Run,
@@ -95,7 +95,7 @@ export const processTaskInContainer = async ({
 		"-e HOST_EXECUTION_METHOD=docker",
 	]
 
-	const command = `pnpm --filter @roo-code/evals cli --taskId ${taskId}`
+	const command = `pnpm --filter @siid-code/evals cli --taskId ${taskId}`
 	logger.info(command)
 
 	for (let attempt = 0; attempt <= maxRetries; attempt++) {

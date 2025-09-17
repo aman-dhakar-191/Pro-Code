@@ -3,7 +3,7 @@ import {
 	type ProviderSettings,
 	ANTHROPIC_DEFAULT_MAX_TOKENS,
 	CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS,
-} from "@roo-code/types"
+} from "@siid-code/types"
 
 // ApiHandlerOptions
 

@@ -1,5 +1,5 @@
 {
-	"name": "@roo-code/types",
+	"name": "@siid-code/types",
 	"version": "0.0.0",
 	"type": "module",
 	"main": "./dist/index.cjs",
@@ -25,8 +25,8 @@
 		"zod": "^3.25.61"
 	},
 	"devDependencies": {
-		"@roo-code/config-eslint": "workspace:^",
-		"@roo-code/config-typescript": "workspace:^",
+		"@siid-code/config-eslint": "workspace:^",
+		"@siid-code/config-typescript": "workspace:^",
 		"@types/node": "20.x",
 		"tsup": "^8.3.5",
 		"vitest": "^3.2.3"

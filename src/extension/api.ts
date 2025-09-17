@@ -16,8 +16,8 @@ import {
 	isSecretStateKey,
 	IpcOrigin,
 	IpcMessageType,
-} from "@roo-code/types"
-import { IpcServer } from "@roo-code/ipc"
+} from "@siid-code/types"
+import { IpcServer } from "@siid-code/ipc"
 
 import { Package } from "../shared/package"
 import { ClineProvider } from "../core/webview/ClineProvider"

@@ -1,7 +1,7 @@
 import { Anthropic } from "@anthropic-ai/sdk"
 import * as vscode from "vscode"
 
-import { type ModelInfo, openAiModelInfoSaneDefaults } from "@roo-code/types"
+import { type ModelInfo, openAiModelInfoSaneDefaults } from "@siid-code/types"
 
 import type { ApiHandlerOptions } from "../../shared/api"
 import { SELECTOR_SEPARATOR, stringifyVsCodeLmModelSelector } from "../../shared/vsCodeSelectorUtils"

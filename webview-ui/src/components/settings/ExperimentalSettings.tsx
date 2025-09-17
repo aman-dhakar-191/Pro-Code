@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react"
 import { FlaskConical } from "lucide-react"
 
-import type { Experiments } from "@roo-code/types"
+import type { Experiments } from "@siid-code/types"
 
 import { EXPERIMENT_IDS, experimentConfigsMap } from "@roo/experiments"
 

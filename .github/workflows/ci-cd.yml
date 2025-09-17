@@ -115,7 +115,7 @@ jobs:
     - name: Upload VSIX artifact
       uses: actions/upload-artifact@v4
       with:
-        name: pro-code-extension-${{ github.sha }}
+        name: siid-code-extension-${{ github.sha }}
         path: ${{ steps.find-vsix.outputs.vsix_path }}
         retention-days: 30
     

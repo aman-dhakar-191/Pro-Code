@@ -1,8 +1,8 @@
 import path from "path"
 import fs from "fs/promises"
 
-import { TelemetryService } from "@roo-code/telemetry"
-import { DEFAULT_WRITE_DELAY_MS } from "@roo-code/types"
+import { TelemetryService } from "@siid-code/telemetry"
+import { DEFAULT_WRITE_DELAY_MS } from "@siid-code/types"
 
 import { ClineSayTool } from "../../shared/ExtensionMessage"
 import { getReadablePath } from "../../utils/path"

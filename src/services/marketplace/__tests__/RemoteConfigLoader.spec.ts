@@ -2,7 +2,7 @@
 
 import axios from "axios"
 import { RemoteConfigLoader } from "../RemoteConfigLoader"
-import type { MarketplaceItemType } from "@roo-code/types"
+import type { MarketplaceItemType } from "@siid-code/types"
 
 // Mock axios
 vi.mock("axios")

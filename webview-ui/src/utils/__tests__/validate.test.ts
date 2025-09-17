@@ -1,4 +1,4 @@
-import { ProviderSettings, OrganizationAllowList } from "@roo-code/types"
+import { ProviderSettings, OrganizationAllowList } from "@siid-code/types"
 import { RouterModels } from "@roo/api"
 
 import { getModelValidationError, validateApiConfigurationExcludingModelErrors } from "../validate"

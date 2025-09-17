@@ -21,7 +21,7 @@ import {
 	BEDROCK_MAX_TOKENS,
 	BEDROCK_DEFAULT_CONTEXT,
 	AWS_INFERENCE_PROFILE_MAPPING,
-} from "@roo-code/types"
+} from "@siid-code/types"
 
 import { ApiStream } from "../transform/stream"
 import { BaseProvider } from "./base-provider"

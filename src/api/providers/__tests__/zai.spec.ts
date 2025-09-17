@@ -14,7 +14,7 @@ import {
 	internationalZAiModels,
 	mainlandZAiModels,
 	ZAI_DEFAULT_TEMPERATURE,
-} from "@roo-code/types"
+} from "@siid-code/types"
 
 import { ZAiHandler } from "../zai"
 

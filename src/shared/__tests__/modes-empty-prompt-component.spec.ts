@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest"
 import { getModeSelection, modes } from "../modes"
-import type { PromptComponent } from "@roo-code/types"
+import type { PromptComponent } from "@siid-code/types"
 
 describe("getModeSelection with empty promptComponent", () => {
 	it("should use built-in mode instructions when promptComponent is undefined", () => {

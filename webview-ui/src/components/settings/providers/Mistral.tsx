@@ -1,7 +1,7 @@
 import { useCallback } from "react"
 import { VSCodeTextField } from "@vscode/webview-ui-toolkit/react"
 
-import { type ProviderSettings, mistralDefaultModelId } from "@roo-code/types"
+import { type ProviderSettings, mistralDefaultModelId } from "@siid-code/types"
 
 import type { RouterModels } from "@roo/api"
 

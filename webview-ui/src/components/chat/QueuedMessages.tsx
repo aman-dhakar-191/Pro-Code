@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
 import Thumbnails from "../common/Thumbnails"
-import { QueuedMessage } from "@roo-code/types"
+import { QueuedMessage } from "@siid-code/types"
 import { Mention } from "./Mention"
 import { Button } from "@src/components/ui"
 

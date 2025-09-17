@@ -2,7 +2,7 @@ import { useCallback, useState, useEffect } from "react"
 import { Checkbox } from "vscrui"
 import { VSCodeTextField } from "@vscode/webview-ui-toolkit/react"
 
-import { type ProviderSettings, type ModelInfo, BEDROCK_REGIONS } from "@roo-code/types"
+import { type ProviderSettings, type ModelInfo, BEDROCK_REGIONS } from "@siid-code/types"
 
 import { useAppTranslation } from "@src/i18n/TranslationContext"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, StandardTooltip } from "@src/components/ui"

@@ -2,7 +2,7 @@
 
 import { ZodError } from "zod"
 
-import { type ModeConfig, customModesSettingsSchema } from "@roo-code/types"
+import { type ModeConfig, customModesSettingsSchema } from "@siid-code/types"
 
 describe("CustomModesSettings", () => {
 	const validMode = {

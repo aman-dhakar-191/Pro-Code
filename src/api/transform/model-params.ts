@@ -3,7 +3,7 @@ import {
 	type ProviderSettings,
 	type VerbosityLevel,
 	ANTHROPIC_DEFAULT_MAX_TOKENS,
-} from "@roo-code/types"
+} from "@siid-code/types"
 
 import {
 	DEFAULT_HYBRID_REASONING_MODEL_MAX_TOKENS,

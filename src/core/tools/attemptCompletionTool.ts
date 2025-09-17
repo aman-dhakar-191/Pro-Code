@@ -1,8 +1,8 @@
 import Anthropic from "@anthropic-ai/sdk"
 import * as vscode from "vscode"
 
-import { RooCodeEventName } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+import { RooCodeEventName } from "@siid-code/types"
+import { TelemetryService } from "@siid-code/telemetry"
 
 import { Task } from "../task/Task"
 import {

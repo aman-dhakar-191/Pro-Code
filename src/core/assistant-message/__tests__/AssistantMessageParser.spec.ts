@@ -4,7 +4,7 @@ import { describe, it, expect, beforeEach } from "vitest"
 import { AssistantMessageParser } from "../AssistantMessageParser"
 import { AssistantMessageContent } from "../parseAssistantMessage"
 import { TextContent, ToolUse } from "../../../shared/tools"
-import { toolNames } from "@roo-code/types"
+import { toolNames } from "@siid-code/types"
 
 /**
  * Helper to filter out empty text content blocks.

@@ -12,9 +12,9 @@ import {
 	type GlobalState,
 	type ClineMessage,
 	TelemetryEventName,
-} from "@roo-code/types"
+} from "@siid-code/types"
 import { CloudService } from "@roo-code/cloud"
-import { TelemetryService } from "@roo-code/telemetry"
+import { TelemetryService } from "@siid-code/telemetry"
 import { type ApiMessage } from "../task-persistence/apiMessages"
 
 import { ClineProvider } from "./ClineProvider"

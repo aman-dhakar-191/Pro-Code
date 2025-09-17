@@ -42,7 +42,7 @@ vi.mock("../state-manager", () => ({
 }))
 
 // Mock TelemetryService
-vi.mock("@roo-code/telemetry", () => ({
+vi.mock("@siid-code/telemetry", () => ({
 	TelemetryService: {
 		instance: {
 			captureEvent: vi.fn(),
