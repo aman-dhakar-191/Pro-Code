@@ -298,7 +298,9 @@ export const webviewMessageHandler = async (
 			await provider.postStateToWebview()
 			break
 		case "executeCommand":
+			vscode.window.showInformationMessage(`Executing command ${message.commands}`)
 			if (message.commands) {
+				vscode.window.showInformationMessage(`Executing command`)
 				try {
 					await vscode.commands.executeCommand(message.commands[0])
 				} catch (error) {
